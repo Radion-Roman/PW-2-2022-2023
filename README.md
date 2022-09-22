@@ -1,17 +1,18 @@
 # PPW-2
 
-## Project name: Recenzii pentru gadgeturi electronice
-## Entities: https://app.diagrams.net/?src=about#G1Q2QBsoYFijeJAAm-gpfWIUKLxSOn_Lnc
+## Project name: Fan Club for gamers.
+## Entities: https://app.diagrams.net/#G1YKiwJn8hsOaH9wVpJGwIQGUtVsbPGPs0
 
-Products
+Games
 ```
 {
- product_id: number(PK, autoincrement),
- product_name: string(required, min: 20: max: 100),
- product_image: varbinary(max),
- description: char(required, min: 200: max: 500),
- category_id: int(FK, required to category_id),
- manufacturer_id: int(FK, required to manufacturer_id),
+ game_id: number(PK, autoincrement),
+ game_name: string(required, min: 10: max: 100),
+ game_image: varbinary(max),
+ game_genre: char(required, min: 3: max: 50),
+ coment_id: int(FK, required to coment_id),
+ game_category: int(FK, required to game_category),
+ game_descriptions: int(required, min: 50: max: 400),
 }
 ```
 
@@ -19,30 +20,37 @@ Users
 ```
 {
  user_id: number(PK, autoincrement),
- fname: string(required, min: 5: max: 50),
- lname: string(required, min: 5: max: 50),
- email: string(required, min: 5: max: 50),
- user_name: string(required, min: 5: max: 50)
+ name_first: string(required, min: 2: max: 60),
+ Name_last: string(required, min: 2: max: 60),
+ gmail: string(required, min: 2: max: 60),
+ nick_name: string(required, min: 2: max: 60),
+ user_logo: varbinary(max),
+ favoryte_game: int(FK, required to favorite_game),
+ privilege: char(required, min: 1: max: 5),
 }
 ```
 
-Categories
+Categoriy
 ```
 {
- category_id: number(PK, autoincrement),
- category_name: string(required, min: 5: max: 50)
+ game_id: number(FK, autoincrement),
+ game_category: string(required, min: 5: max: 50),
+ game_genre: char(required, min: 3: max: 50),
 }
 ```
 
-Comments
+Chat
 ```
 {
  comment_id: number(PK, autoincrement),
  user_id: number(FK,  required to user_id),
+ game_id: number(FK, autoincrement),
+ like_id: int(required, min: 0: max: 10000),
+ add_mage: varbynary(max),
 }
 ```
 
-Likes
+Like
 ```
 {
  like_id: int(PK),
@@ -51,11 +59,12 @@ Likes
 }
 ```
 
-Manufacturers
+FGame
 ```
 {
- manufacturer_id: number(PK, autoincrement),
- manufacturer_name: string(required, min: 5: max: 50)
+ favorite_game: int(PK, required to favorite_game),
+ user_id: number(FK, autoincrement),
+ game_id: number(FK, autoincrement),
 }
 ````
 
