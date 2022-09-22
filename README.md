@@ -33,7 +33,7 @@ Users
 Categoriy
 ```
 {
- game_id: number(FK, autoincrement),
+ game_id: number(FK,  required to game_id),
  game_category: string(required, min: 5: max: 50),
  game_genre: char(required, min: 3: max: 50),
 }
@@ -44,7 +44,7 @@ Chat
 {
  comment_id: number(PK, autoincrement),
  user_id: number(FK,  required to user_id),
- game_id: number(FK, autoincrement),
+ game_id: number(FK,  required to game id),
  like_id: int(required, min: 0: max: 10000),
  add_mage: varbynary(max),
 }
@@ -63,8 +63,8 @@ FGame
 ```
 {
  favorite_game: int(PK, required to favorite_game),
- user_id: number(FK, autoincrement),
- game_id: number(FK, autoincrement),
+ user_id: number(FK,  required to user_id),
+ game_id: number(FK,  required to game_id),
 }
 ````
 
