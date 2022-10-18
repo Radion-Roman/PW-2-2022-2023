@@ -5,25 +5,25 @@ class GameRepository {
         return await Game.findAll({attributes: fields})
     }
 
-    async getOne(id) {
-        return await Game.findByPk(id)
+    async getOne(gid) {
+        return await Game.findByPk(gid)
     }
 
     async create(Game) {
-        return await Game.create(Game)
+        return await Game.create(game)
     }
 
-    async update(id, Game) {
-        const existingGame = await Game.findByPk(id)
+    async update(gid, Game) {
+        const existingGame = await Game.findByPk(gid)
         if (existingGame) {
             return await existingGame.update(game);
         }
         return null;
     }
 
-    async delete(id) {
+    async delete(gid) {
         const deletedGame = await Game.destroy({
-            where: { id: id }
+            where: { gid: gid }
         })
         if (deletedGame) {
             return {};

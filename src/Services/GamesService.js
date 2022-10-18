@@ -5,24 +5,24 @@ class GamesService {
         return await GameRepository.getAll(fields)
     }
 
-    async getOne(id) {
-        return await GameRepository.getOne(id)
+    async getOne(gid) {
+        return await GameRepository.getOne(gid)
     }
 
-    async create(category) {
-        return await GameRepository.create(category)
+    async create(game) {
+        return await GameRepository.create(game)
     }
 
-    async update(id, category) {
-        const existingGame = await Category.findByPk(id)
+    async update(gid, game) {
+        const existingGame = await Game.findByPk(gid)
         if (existingGame) {
-            return await existingGame.update(category);
+            return await existingGame.update(game);
         }
         return null;
     }
 
-    async delete(id) {
-        return await GameRepository.delete(id)
+    async delete(gid) {
+        return await GameRepository.delete(gid)
     }
 }
 

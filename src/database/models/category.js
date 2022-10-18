@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     category.init(
         {
             gid: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.INTEGER
             },
             Gname: {
                 type: DataTypes.STRING(50)
